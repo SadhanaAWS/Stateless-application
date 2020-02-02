@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-apache-nginx
+spec:
+  rules:
+  - host: apache.sadhana.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: apache-svc
+          servicePort: 80
+  - host: nginx.sadhana.com
+    http:
+     paths:
+     - path: /
+       backend:
+         serviceName: nginx-svc
+         servicePort: 80
+
